@@ -627,7 +627,7 @@ body {
 
 .anime-title {
   font-weight: 600;
-  
+  font-size: 0.5rem;
   margin-bottom: 0.3rem;
   color: var(--text-color);
   white-space: nowrap;
@@ -795,7 +795,7 @@ body {
 
 /* Info Page Styles */
 .info-page {
-  width: 97%;
+  width: 95%;
   max-width: 1200px;
   margin: 2rem 0.7rem;
   background-color: var(--card-bg);
