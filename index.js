@@ -417,7 +417,7 @@ function renderTopAnime(animeList, filter) {
       <img src="${anime.images?.jpg?.image_url}" alt="${title}" class="anime-img" 
            onerror="this.src='https://via.placeholder.com/60x85?text=No+Image'">
       <div class="anime-details">
-        <div style="font-size: 1rem"; class="anime-title">${title}</div>
+        <div style="font-size: 0.2rem"; class="anime-title">${title}</div>
         <div class="tags">
           <div class="tag">${metricIcon} ${metricValue}</div>
           <div class="tag"><i class="fas fa-star"></i> ${score}</div>
