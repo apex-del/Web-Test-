@@ -627,10 +627,10 @@ body {
 
 .anime-title {
   font-weight: 600;
-  font-size: 0.5rem;
+  font-size: 0.3rem;
   margin-bottom: 0.3rem;
   color: var(--text-color);
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
 }
