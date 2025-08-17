@@ -795,7 +795,7 @@ body {
 
 /* Info Page Styles */
 .info-page {
-  width: 95%;
+  width: 97%;
   max-width: 1200px;
   margin: 2rem auto;
   background-color: var(--card-bg);
@@ -853,7 +853,7 @@ body {
 }
 
 .anime-title {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 0.5rem;
   color: var(--second-color);
   word-break: break-word;
