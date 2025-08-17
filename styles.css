@@ -797,7 +797,7 @@ body {
 .info-page {
   width: 97%;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 2rem 0.7rem;
   background-color: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
