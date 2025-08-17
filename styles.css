@@ -965,7 +965,7 @@ body {
 .anime-details-container {
   background-color: rgba(0,0,0,0.3);
   border-radius: 10px;
-  padding: 1.5rem 0;
+  padding: 1.5rem ;
   margin-bottom: 2rem;
 }
 
@@ -1047,7 +1047,7 @@ body {
 
 .recommendation-item img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   border-radius: 8px;
   object-fit: cover;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
