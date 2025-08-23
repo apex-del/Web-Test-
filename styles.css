@@ -1089,7 +1089,9 @@ body {
   color: var(--second-color);
   margin: 0;
   flex: 1;
-  white-space: nowrap;
+  white-space: normal;   /* allows wrapping */
+  word-wrap: break-word; /* breaks long words */
+  overflow-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
 }
