@@ -9,6 +9,9 @@ const closeLogin = document.getElementById('closeLogin');
 const loader = document.getElementById('loader');
 const watchBtn = document.getElementById('watchBtn');
 const cancelBtn = document.getElementById('cancelBtn');
+const topAnimeList = document.getElementById('topAnimeList');
+const tabs = document.querySelectorAll('.tabs button');
+
 
 // Show info page
 async function showInfoPage(animeId) {
