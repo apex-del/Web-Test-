@@ -90,7 +90,7 @@ body {
 .loginBtn {
   margin: 0 1%;
   padding: 0.5rem 1rem;
-  color: #000;
+  color: red;
   background-color: var(--second-color);
   border: none;
   border-radius: 7px;
