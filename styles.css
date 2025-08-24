@@ -432,7 +432,7 @@ body {
 .anime-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 0 1rem;
   margin: 2rem 0;
   animation: fadeIn 0.5s ease-in-out;
@@ -466,7 +466,7 @@ body {
 }
 
 .anime-item p {
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0 0.5rem;
@@ -526,9 +526,9 @@ body {
 
 /* Top 10 Anime */
 .top10-container {
-  width: 97%;
+  width: 99%;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
   background-color: var(--card-bg);
   border-radius: 10px;
   padding: 1.5rem;
