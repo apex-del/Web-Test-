@@ -77,7 +77,7 @@ body {
   margin: 0 auto;
   text-align: center;
   font-size: 1.7rem;
-  color: var(--second-color);
+  color: red;
   flex-grow: 1;
   cursor: pointer;
   transition: transform 0.3s;
