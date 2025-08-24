@@ -389,4 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         window.location.href = 'index.html';
     }
+
+        // Set first tab as active by default
+    document.querySelector('.tabs button[data-filter="today"]').classList.add('active');
+    
+    // Fetch today's anime
+    fetchTopAnime('today');
 });
