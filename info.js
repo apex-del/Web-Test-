@@ -201,6 +201,149 @@ async function loadRecommendations(malId) {
     }
 }
 
+// Current active tab
+let activeTab = 'today';
+
+// Tab click handlers
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active class from all tabs
+    tabs.forEach(t => t.classList.remove('active'));
+    
+    // Add active class to clicked tab
+    tab.classList.add('active');
+    
+    // Set active tab
+    activeTab = tab.dataset.filter;
+    
+    // Fetch data for the selected tab
+    fetchTopAnime(activeTab);
+  });
+});
+
+// Fetch top anime based on filter
+async function fetchTopAnime(filter = 'today') {
+  try {
+    showLoader();
+    topAnimeList.innerHTML = '<div class="loading">Loading...</div>';
+    
+    let endpoint = '';
+    
+    // Set API endpoint based on filter
+    switch(filter) {
+      case 'today':
+        endpoint = 'https://api.jikan.moe/v4/top/anime?filter=airing&limit=15'; // Get extra to filter duplicates
+        break;
+      case 'popular':
+        endpoint = 'https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=10';
+        break;
+      case 'favorite':
+        endpoint = 'https://api.jikan.moe/v4/top/anime?filter=favorite&limit=10';
+        break;
+      default:
+        endpoint = 'https://api.jikan.moe/v4/top/anime?filter=airing&limit=15';
+    }
+    
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    
+    if (data.data && data.data.length > 0) {
+      // Remove duplicates for today's tab
+      const uniqueAnime = filter === 'today' ? removeDuplicates(data.data) : data.data.slice(0, 10);
+      renderTopAnime(uniqueAnime, filter);
+    } else {
+      topAnimeList.innerHTML = '<div class="loading">No anime found</div>';
+    }
+  } catch (error) {
+    console.error(`Error fetching ${filter} anime:`, error);
+    topAnimeList.innerHTML = '<div class="loading">Failed to load anime</div>';
+  } finally {
+    hideLoader();
+  }
+}
+
+// Function to remove duplicate anime (by mal_id)
+function removeDuplicates(animeList) {
+  const uniqueAnime = [];
+  const ids = new Set();
+  
+  for (const anime of animeList) {
+    if (!ids.has(anime.mal_id)) {
+      ids.add(anime.mal_id);
+      uniqueAnime.push(anime);
+      
+      // Stop when we have 10 unique anime
+      if (uniqueAnime.length === 10) break;
+    }
+  }
+  
+  return uniqueAnime;
+}
+
+// Render top anime list
+function renderTopAnime(animeList, filter) {
+  topAnimeList.innerHTML = '';
+  
+  animeList.forEach((anime, index) => {
+    const rank = index + 1;
+    const title = anime.title_english || anime.title;
+    const episodes = anime.episodes || '?';
+    const score = anime.score ? anime.score.toFixed(1) : 'N/A';
+    const type = anime.type || 'TV';
+    
+    // Different metrics based on filter
+    let metricValue, metricIcon;
+    switch(filter) {
+      case 'today':
+        metricValue = `Ep ${anime.episodes || '?'}`;
+        metricIcon = '<i class="fas fa-tv"></i>';
+        break;
+      case 'popular':
+        metricValue = `${anime.scored_by?.toLocaleString() || 'N/A'} votes`;
+        metricIcon = '<i class="fas fa-users"></i>';
+        break;
+      case 'favorite':
+        metricValue = `${anime.favorites?.toLocaleString() || 'N/A'} favs`;
+        metricIcon = '<i class="fas fa-heart"></i>';
+        break;
+    }
+    
+    const card = document.createElement('div');
+    card.className = 'anime-card';
+    card.innerHTML = `
+      <div class="rank">${rank}</div>
+      <img src="${anime.images?.jpg?.image_url}" alt="${title}" class="anime-img" 
+           onerror="this.src='https://via.placeholder.com/60x85?text=No+Image'">
+      <div class="anime-details">
+        <div style="font-size: 0.9rem"; class="anime-title">${title}</div>
+        <div class="tags">
+          <div class="tag">${metricIcon} ${metricValue}</div>
+          <div class="tag"><i class="fas fa-star"></i> ${score}</div>
+          <div class="tag"><i class="fas fa-film"></i> ${type}</div>
+        </div>
+      </div>
+    `;
+    
+    // Add click handler
+    card.addEventListener('click', () => {
+      showAnimeDetails(anime.mal_id);
+    });
+    
+    topAnimeList.appendChild(card);
+  });
+}
+
+// Show anime details
+function showAnimeDetails(malId) {
+  // Find anime in our data that matches the MAL ID
+  const anime = animeData.find(a => a.syncData.mal_id == malId);
+  if (anime) {
+    storeScrollPosition();
+    window.location.href = `info.html?id=${anime.id}`;
+  }
+          }
+    
+
 // Loader functions
 function showLoader() {
     loader.style.display = 'flex';
