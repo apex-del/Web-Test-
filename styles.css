@@ -77,7 +77,7 @@ body {
   margin: 0 auto;
   text-align: center;
   font-size: 1.7rem;
-  color: red;
+  color: var(--second-color);
   flex-grow: 1;
   cursor: pointer;
   transition: transform 0.3s;
@@ -90,8 +90,8 @@ body {
 .loginBtn {
   margin: 0 1%;
   padding: 0.5rem 1rem;
-  color: red;
-  background-color: Blue;
+  color: #000;
+  background-color: green;
   border: none;
   border-radius: 7px;
   font-weight: bold;
@@ -1098,7 +1098,7 @@ body {
 
 .close-player {
   background-color: var(--second-color);
-  color: red;
+  color: #000;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
