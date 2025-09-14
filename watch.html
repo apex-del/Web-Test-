@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeWorld - Watch Anime</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Player Page -->
+    <div class="player-page" id="playerPage">
+        <div class="player-header">
+            <h2 class="player-title" id="playerAnimeTitle"></h2>
+            <button class="close-player" id="closePlayer">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+        
+        <div class="player-container">
+            <div class="video-container">
+                <iframe
+                    id="iframe-embed"
+                    allow="fullscreen; autoplay; encrypted-media; picture-in-picture"
+                    sndbox="allow-scripts allow-same-origin allow-top-navigation allow-forms allow-presentation"
+                    allowfullscreen
+                    mozallowfullscreen
+                    webkitallowfullscreen
+                    frameborder="0"
+                    style="width:100%; border:none;">
+                </iframe>
+            </div>
+
+            <div class="player-controls">
+                <div class="language-switcher">
+                    <button class="language-btn active" id="subBtn" onclick="switchLanguage('sub')">
+                        <i class="fas fa-closed-captioning"></i> Sub
+                    </button>
+                    <button class="language-btn" id="dubBtn" onclick="switchLanguage('dub')">
+                        <i class="fas fa-microphone"></i> Dub
+                    </button>
+                </div>
+            </div>
+
+            <div class="episode-info">
+                <h3 id="episodeTitle">Episode 1</h3>
+                <p class="episode-description" id="episodeDescription">Loading episode description...</p>
+            </div>
+
+            <div class="episodes-section">
+                <h3 class="section-title">Episodes</h3>
+                <div class="episodes-grid" id="episodesGrid">
+                    <!-- Episodes will be loaded here -->
+                </div>
+            </div>
+
+            <div class="recommendations-section">
+                <h3 class="section-title">You Might Also Like</h3>
+                <div class="recommendations-grid" id="recommendationsGrid">
+                    <!-- Recommendations will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loader-container" id="loader">
+      
+            <i class="fas fa-spinner fa-pulse"></i>
+            <p>Loading Video Player....</p>
+        </div>
+    </div>
+
+            <!-- Top 10 Anime -->
+        <div class="top10-container">
+            <div class="top10-header">
+                <h2><i class="fas fa-crown"></i> Top 10 Anime</h2>
+                <div class="tabs">
+                    <button data-filter="today">Today</button>
+                    <button data-filter="popular">Popular</button>
+                    <button data-filter="favorite">Favorite</button>
+                </div>
+            </div>
+            <div class="anime-list" id="topAnimeList">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer_element">
+            <h3>Developer: Apex07 Team</h3>
+            <h4>AnimeWorld does not store any content on our server. We just embed it from third-party websites.</h4>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p>&copy; AnimeWorld. All rights reserved</p>
+        </div>
+    </section>
+
+    
+
+<!-- Fullscreen Loader -->
+<div class="loader-container" id="fullscreenLoader">
+    <div class="loader-content">
+        <i class="fas fa-spinner fa-pulse"></i>
+        <p id="loaderMessage">Loading video player...</p>
+        <button style="display:none;" id="retryBtn">Retry</button>
+    </div>
+</div>
+
+    <script src="anime-data.js"></script>
+    <script src="watch.js"></script>
+</body>
+</html>
