@@ -1074,14 +1074,15 @@ body {
 }
 
 .player-header {
-  display: block;
+  display: flex; /* keeps content aligned nicely */
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background-color: var(--header-color);
-  position: fixed;
-
-}
+  position: relative; /* normal flow, not fixed */
+  width: 100%;
+  z-index: 1; /* optional, keeps it above background if needed */
+  }
 
 .player-title {
   font-size: 1.4rem;
