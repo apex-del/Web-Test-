@@ -1079,7 +1079,7 @@ body {
   align-items: center;
   padding: 1rem;
   background-color: var(--header-color);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 10;
 }
