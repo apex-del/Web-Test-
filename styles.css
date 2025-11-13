@@ -1074,6 +1074,7 @@ body {
 }
 
 .player-header {
+  margin-bottom: 10px;
   display: flex; /* keeps content aligned nicely */
   justify-content: space-between;
   align-items: center;
@@ -1127,7 +1128,7 @@ body {
   width: 100%;
   aspect-ratio: 16/9;
   background-color: #000;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   border-radius: 8px;
   overflow: hidden;
 }
