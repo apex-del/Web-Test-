@@ -1074,14 +1074,13 @@ body {
 }
 
 .player-header {
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
   background-color: var(--header-color);
   position: fixed;
-  top: 0;
-  z-index: 10;
+
 }
 
 .player-title {
